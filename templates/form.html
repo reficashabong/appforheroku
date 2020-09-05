@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loan Approval Prediction Using ML & DL</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.text{
+             font-weight:bold;
+             display:block;
+            
+             background-color:black;
+             
+}
+h2{
+            
+            font-weight:bold;
+            display:block;
+            text-align:center;
+            text-decoration:underline ;
+            color:white;
+}
+.feedback{
+             text-align:center;
+             
+             
+}
+.social-media{ 
+              background:black;
+              height:20vh;
+              display:flex;
+              justify-content:center;
+              align-items:center;
+}
+a{
+              height:85px;
+              width:85px;
+              background-color:#f5f6fa;
+              border-radius:50px;
+              text-align:center;
+              margin:10px;
+              line-height:110px;
+              box-shadow:1px 4px 2px 2px #dcdde1;
+}
+a i{
+              transition: all 0.3s linear;
+}
+a:hover i{
+              transition:scale(1.4);
+}
+
+.fa-instagram{
+              color:#e84393;
+}
+</style>
+</head>
+<body>
+<header>
+             <div class=text> <i><h2 text-align:center>LOAN PREDICTION</h2></i></div>
+</header>
+ <div>
+      <div class="container" >
+      <div class="col-lg-8 m-auto d-block">
+    <form action="{{ url_for('predict')}}" method="POST" class="bg-light">
+    <fieldset>
+      <legend class="text-center">Please fill in the Details</legend>
+      <div>
+      <div class="form-group">
+        <label>Married:</label>
+           <select name="Married" id="Married" class="form-control" required="required">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+           </select>
+      </div>
+      <div class="form-group">
+        <label>Dependents:</label>
+           <select name="Dependents" id="Dependents" class="form-control" required="required">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3+</option>
+           </select>
+      </div>
+      <div class="form-group">
+        <label>Education:</label>
+           <select name="Education" id="Education" class="form-control" required="required">
+              <option value="1">Graduate</option>
+              <option value="0">Not Graduate</option>
+           </select>
+      </div>
+     <div class="form-group">
+        <label>Self_Employed:</label>
+           <select name="Self_Employed" id="Self_Employed" class="form-control" required="required">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+           </select>
+      </div>
+      <div class="form-group">
+        <label>ApplicantIncome:</label>
+        <input type="text" name="ApplicantIncome" placeholder="ApplicantIncome" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label>CoapplicantIncome:</label>
+        <input type="text" name="CoapplicantIncome" placeholder="CoapplicantIncome" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label>LoanAmount :</label>
+        <input type="text" name="LoanAmount " placeholder="LoanAmount " class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label>Loan_Amount_Term:</label>
+        <input type="text" name="Loan_Amount_Term" placeholder="Loan_Amount_Term" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label>Credit_History:</label>
+           <select name="Credit_History" id="Credit_History" class="form-control" required="required">
+              <option value="1">1</option>
+              <option value="0">0</option>
+           </select>
+      </div>
+      <div class="form-group">
+        <label>Property_Area:</label>
+           <select name="Property_Area" id="Property_Area" class="form-control" required="required">
+              <option value="0">Urban</option>
+              <option value="1">Semi-urban</option>
+              <option value="2">Rural</option>
+           </select>
+      </div>
+      </div>
+      <button type="submit" class="btn-large waves-effect waves-light orange btn btn-success">Predict Loan Approval</button>
+      </div>
+    </fieldset>
+  </form>
+  <br>
+  <br>
+ </div>
+ <center>
+    <h1>{{ pred }}</h1>
+ </center>
+ <div class="feedback"><h3>FOLLOW for any queries</h3>
+   <div class="social-media">
+       
+        <a href="https://www.instagram.com/reficashabong" target="_blank">
+      <i class="fa fa-2x fa-instagram"></i>
+      </a>
+        <a href="https://www.github.com/reficashabong" target="_blank">
+      <i class="fa fa-2x fa-github"></i>
+      </a>
+   </div>
+ </div>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
